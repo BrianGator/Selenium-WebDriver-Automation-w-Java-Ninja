@@ -1,1395 +1,657 @@
-# Selenium WebDriver Automation with Java - Ninja Edition
+# Selenium WebDriver Automation with Java - Ninja Showcase
 
-## Project Name
-**Selenium WebDriver Automation Framework - Ninja Plus** - A comprehensive Java-based automation testing framework for web applications using Selenium WebDriver with advanced testing capabilities.
-
-## Description
-This project is an extensive learning and implementation resource for Selenium WebDriver automation using Java. It covers fundamental Java concepts through advanced automation testing patterns, including REST API automation, cross-browser testing, data-driven testing, and CI/CD integration.
+A complete Selenium WebDriver automation guide and portfolio README using **Java**, **Selenium WebDriver 4**, **TestNG**, **Maven**, **Page Object Model**, **Page Factory**, **Log4j2**, **Extent Reports**, **Apache POI**, **REST Assured**, **Selenium Grid**, **Jenkins**, **GitHub**, **Cucumber BDD**, database validation, and framework design practices.
 
 **Written by Brian McCarthy**
 
 ---
 
-## Table of Contents
-- [Languages & Technologies](#languages--technologies)
-- [Methodologies Used](#methodologies-used)
-- [Core Functions & Components](#core-functions--components)
-- [Project File Structure](#project-file-structure)
-- [Key Features Implemented](#key-features-implemented)
-- [Code Methodologies & Examples](#code-methodologies--examples)
-- [REST API Automation Guide](#rest-api-automation-guide)
-- [How to Use](#how-to-use)
-- [All Testing Types with Descriptions](#all-testing-types-with-descriptions)
-- [Dependencies](#dependencies)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
-- [Additional Resources](#additional-resources)
+## Course Content Table of Contents
+
+| Module # | Module Name | Module Details |
+|---:|---|---|
+| 1 | Selenium Introduction | Course outcome, why Selenium, Selenium WebDriver architecture, and how WebDriver communicates with browsers. |
+| 2 | Setup and Installation | Java, Eclipse, Maven, Maven plugin setup, and system preparation for Selenium automation. |
+| 3 | Java Data Types | Hello World, variables, default values, strings, string methods, arrays, and String vs StringBuilder concepts. |
+| 4 | Classes and Methods | Java methods, return types, classes, object creation, and reusable code organization. |
+| 5 | Getters, Setters, and Constructors | Encapsulation, `this` keyword, constructors, and Java object initialization. |
+| 6 | In-Depth Java Review | Beginner Java reinforcement and interview-focused Java concepts. |
+| 7 | Selenium WebDriver Setup | Selenium 4 Maven setup, first project creation, JavaDoc, and Selenium 4 syntax changes. |
+| 8 | Browser Execution | Running tests on Chrome, Firefox, Edge, and Safari; Selenium Manager; driver setup. |
+| 9 | Element Inspection | Chrome DevTools, Firefox DevTools, SelectorsHub, XPath generation, and disappearing elements. |
+| 10 | Basic Locators | `id`, `name`, `xpath`, `linkText`, `partialLinkText`, `className`, and `tagName`. |
+| 11 | CSS Selectors | CSS ID, class, multiple class, wildcard, child-node, and CSS locator strategies. |
+| 12 | XPath Locators | Relative XPath, text, contains, starts-with, parent/sibling axes, and practical XPath design. |
+| 13 | Web Elements | Click, type, clear, navigation, enabled/disabled state, radio buttons, checkboxes, dropdowns, lists, hidden elements. |
+| 14 | Profiles and Options | Firefox profiles, ChromeOptions, browser extensions, and browser startup configuration. |
+| 15 | Useful WebDriver Methods | `getText`, `getAttribute`, generic element methods, element presence, refactoring utilities. |
+| 16 | Waits and Synchronization | Implicit waits, explicit waits, generic wait utilities, and wait-related interview questions. |
+| 17 | Advanced Interactions | Calendars, autocomplete, dynamic dropdowns, additional examples, and screenshots. |
+| 18 | JavaScript Execution | JavaScriptExecutor, window size, scroll into view, and JavaScript click. |
+| 19 | Windows, Frames, and Alerts | Window switching, iframe switching, alert handling, and focus control. |
+| 20 | Actions Class | Mouse hover, drag-and-drop, sliders, and pointer actions. |
+| 21 | Keyboard Events | Keyboard simulation, key combinations, and Actions-based key events. |
+| 22 | Selenium Exceptions | NoSuchElement, not-clickable, stale element, and element-not-interactable exceptions. |
+| 23 | Automation Framework | Framework design, Page Object Model, object repository, Page Factory, and link validation. |
+| 24 | Log4j2 Logging | Console logging, file logging, custom loggers, and test-case logging. |
+| 25 | TestNG Setup | TestNG introduction, setup, plugin configuration, and JavaDoc. |
+| 26 | TestNG Annotations and Asserts | `@Test`, hard asserts, soft asserts, method/class/suite/test annotations, and suites. |
+| 27 | TestNG Advanced Features | Priorities, groups, dependent tests, disabled tests, timeouts, and preserving execution order. |
+| 28 | TestNG Parameters and Parallel | XML parameters and parallel execution across tests, classes, and methods. |
+| 29 | Parallel Practice | Practical multi-browser parallel execution with TestNG XML. |
+| 30 | DataProviders | Running the same test with multiple data sets using TestNG `@DataProvider`. |
+| 31 | ITestResult | Test status inspection and screenshots on failure. |
+| 32 | TestNG Listeners | `IInvokedMethodListener`, `ITestListener`, `ISuiteListener`, and listener refactoring. |
+| 33 | Reporter Logs and HTML Reports | TestNG reporter logs and generated HTML reports. |
+| 34 | Extent Reports | Advanced HTML reporting, screenshots in reports, multiple tests, and POM reporting. |
+| 35 | Data-Driven Testing | Excel setup, Apache POI, reading/writing Excel, and DataProviders with Excel data. |
+| 36 | File Upload and Desktop Dialogs | File upload patterns using standard file inputs and OS-level dialog support where needed. |
+| 37 | WebDriver Event Listener | Event-driven WebDriver logging and debugging concepts. |
+| 38 | Selenium Grid | Hub/node concepts, RemoteWebDriver, cross-browser and cross-OS execution. |
+| 39 | Maven Build Management | Maven features, repositories, POM, lifecycle, commands, profiles, and TestNG integration. |
+| 40 | Git and GitHub | Local repositories, staging, commits, remotes, branches, conflict resolution, and cloning. |
+| 41 | Jenkins CI | Jenkins setup, Java/Maven configuration, plugins, freestyle jobs, remote builds, scheduled builds. |
+| 42 | Interview Preparation | Real-time Selenium WebDriver interview strategy and technical preparation. |
+| 43 | Database Testing | JDBC, SQL database checks, MongoDB validation, and UI-to-database comparison. |
+| 44 | Performance Timing | Single-user page timing, navigation timing, Stopwatch usage, and result logging. |
+| 45 | Cucumber BDD | Gherkin, feature files, step definitions, runners, Cucumber options, and Selenium conversion. |
+| 46 | Cloud Execution | Remote cloud browser execution concepts and provider configuration using safe environment variables. |
+| 47 | Selenium IDE Basics | Selenium IDE, first scripts, generated WebDriver code, assert vs verify. |
+| 48 | Conditional Statements and Loops | `if`, `switch`, `while`, `for`, and automation control-flow logic. |
+| 49 | Static Keyword | Static methods, static fields, shared utilities, and framework design implications. |
+| 50 | Java Practice Exercises | String manipulation, loops, reverse-string exercise, and interview problem solving. |
+| 51 | Java OOP Concepts | Inheritance, access modifiers, abstract classes, interfaces, overloading, and overriding. |
+| 52 | Exception Handling | Checked exceptions, runtime exceptions, properties files, and robust error handling. |
+| 53 | Java Collections | ArrayList, LinkedList, Sets, Maps, and using collections in test data and framework code. |
+| 54 | Conclusion | Next steps and final Selenium automation project guidance. |
+| 55 | Legacy Log4j Reference | Older Log4j concepts retained for historical reference. |
+| 56 | Legacy TestNG Reference | Older TestNG lectures retained for historical comparison and migration awareness. |
 
 ---
 
-## Languages & Technologies
+## Selenium Java Tutorial Guide with Code Samples and Expected Results
 
-### Primary Language
-- **Java** - 100% (Core language for all automation testing)
-  - JDK 11 or higher
-  - Object-Oriented Programming (OOP)
-  - Exception Handling
-  - Collections Framework
-  - Streams & Lambdas
+### 1. Selenium WebDriver Basics
 
-### Testing Frameworks & Libraries
-- **Selenium WebDriver 4.x** - Web browser automation
-- **TestNG 7.x** - Testing framework with advanced features
-- **REST-Assured** - REST API testing
-- **Log4j2** - Logging framework
-- **Extent Reports** - HTML test reporting
-- **Apache POI** - Excel file handling
-- **Gson** - JSON serialization/deserialization
-- **Maven 3.6+** - Build automation tool
-- **Jenkins** - CI/CD integration
+Selenium WebDriver drives a real browser and performs the same actions a user performs: opening pages, clicking links, typing text, selecting dropdown values, and validating results.
 
-### IDE & Tools
-- IntelliJ IDEA or Eclipse
-- Git for version control
-- Maven for dependency management
-
----
-
-## Methodologies Used
-
-### 1. **Page Object Model (POM)**
-Separates UI elements from test logic, making tests maintainable and scalable.
-
-### 2. **Data-Driven Testing**
-Uses external data sources (Excel, CSV, DataProviders) to run tests with multiple datasets.
-
-### 3. **Behavior-Driven Development (BDD)**
-Tests written in business-readable format describing expected behaviors.
-
-### 4. **Test-Driven Development (TDD)**
-Writing tests before implementing features to ensure quality and design.
-
-### 5. **Continuous Integration/Continuous Deployment (CI/CD)**
-Automated test execution in Jenkins pipelines for every code commit.
-
-### 6. **Cross-Browser Testing**
-Testing application functionality across multiple browsers (Chrome, Firefox, Edge, Safari).
-
-### 7. **Parallel Test Execution**
-Running multiple tests simultaneously to reduce overall test execution time.
-
-### 8. **Exception Handling & Custom Assertions**
-Robust error handling and custom assertions for meaningful test failures.
-
-### 9. **Logging Best Practices**
-Comprehensive logging at different levels (INFO, DEBUG, ERROR) for test debugging.
-
-### 10. **REST API Automation**
-Testing backend services and APIs alongside UI automation for complete integration testing.
-
----
-
-## Core Functions & Components
-
-### WebDriver Management
-- `WebDriverFactory` - Factory pattern for browser initialization
-- `BrowserFactory` - Multi-browser support configuration
-- `DriverManager` - Singleton pattern for driver management
-
-### Page Object Model Classes
-- `BasePage` - Base class for all page objects
-- `LoginPage` - Example page object with element locators and methods
-- `HomePage` - Dashboard and main application page
-- `SearchPage` - Search functionality page object
-
-### Test Base Classes
-- `BaseTest` - Base test class with setup/teardown
-- `DataProviderUtil` - Data provider configurations
-- `TestListener` - TestNG listener for event handling
-
-### Utility Classes
-- `CommonUtilities` - Common helper methods
-- `WaitUtil` - Explicit and implicit wait implementations
-- `JavaScriptUtil` - JavaScript execution utilities
-- `ExcelUtil` - Excel file handling
-- `APIUtil` - REST API testing utilities
-- `DatabaseUtil` - Database operations
-
-### Reporting & Logging
-- `ExtentReportManager` - Extent Reports configuration
-- `Log4jConfig` - Log4j2 logging setup
-- `TestReport` - Custom reporting utilities
-
-### Configuration Management
-- `config.properties` - Environment and browser configurations
-- `log4j2.xml` - Logging configuration
-
----
-
-## Project File Structure
-
-```
-Selenium-WebDriver-Automation-w-Java-Ninja/
-│
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   ├── com/
-│   │   │   │   ├── automation/
-│   │   │   │   │   ├── base/
-│   │   │   │   │   │   ├── BaseTest.java           # Base test class with setup/teardown
-│   │   │   │   │   │   ├── BasePage.java           # Base page object class
-│   │   │   │   │   │   └── DriverManager.java      # WebDriver lifecycle management
-│   │   │   │   │   │
-│   │   │   │   │   ├── factory/
-│   │   │   │   │   │   └── WebDriverFactory.java   # Browser factory implementation
-│   │   │   │   │   │
-│   │   │   │   │   ├── pages/
-│   │   │   │   │   │   ├── LoginPage.java          # Login page object
-│   │   │   │   │   │   ├── HomePage.java           # Home page object
-│   │   │   │   │   │   └── SearchPage.java         # Search page object
-│   │   │   │   │   │
-│   │   │   │   │   ├── utils/
-│   │   │   │   │   │   ├── CommonUtilities.java    # Common utilities
-│   │   │   │   │   │   ├── WaitUtil.java           # Wait strategies
-│   │   │   │   │   │   ├── JavaScriptUtil.java     # JavaScript execution
-│   │   │   │   │   │   ├── ExcelUtil.java          # Excel handling
-│   │   │   │   │   │   ├── APIUtil.java            # REST API utilities
-│   │   │   │   │   │   └── DatabaseUtil.java       # Database operations
-│   │   │   │   │   │
-│   │   │   │   │   ├── config/
-│   │   │   │   │   │   ├── PropertyFileReader.java # Config file reader
-│   │   │   │   │   │   └── config.properties       # Configuration file
-│   │   │   │   │   │
-│   │   │   │   │   ├── listeners/
-│   │   │   │   │   │   └── TestListener.java       # TestNG event listener
-│   │   │   │   │   │
-│   │   │   │   │   ├── report/
-│   │   │   │   │   │   └── ExtentReportManager.java # Extent Reports manager
-│   │   │   │   │   │
-│   │   │   │   │   └── constants/
-│   │   │   │   │       ├── Constants.java          # Application constants
-│   │   │   │   │       └── BrowserType.java        # Browser enums
-│   │   │   │   │
-│   │   │   │   └── S01-S51/                        # Section-wise learning modules
-│   │   │   │       ├── S01_JavaBasics/            # Java fundamentals
-│   │   │   │       ├── S06_SeleniumSetup/         # Selenium setup
-│   │   │   │       ├── S09_Locators/              # Element locators
-│   │   │   │       └── ... (S10-S51 sections)
-│   │   │
-│   │   └── resources/
-│   │       ├── config.properties                   # Test configuration
-│   │       ├── log4j2.xml                          # Logging configuration
-│   │       ├── testdata.xlsx                       # Test data file
-│   │       └── application.properties              # App properties
-│   │
-│   └── test/
-│       ├── java/
-│       │   └── com/
-│       │       └── automation/
-│       │           ├── tests/
-│       │           │   ├── LoginTests.java         # Login test suite
-│       │           │   ├── SearchTests.java        # Search test suite
-│       │           │   ├── APITests.java           # API automation tests
-│       │           │   └── IntegrationTests.java   # Integration tests
-│       │           │
-│       │           ├── dataproviders/
-│       │           │   ├── LoginDataProvider.java  # Login test data
-│       │           │   └── APIDataProvider.java    # API test data
-│       │           │
-│       │           └── listeners/
-│       │               └── TestListener.java       # Test event listener
-│       │
-│       └── resources/
-│           ├── testng.xml                          # TestNG configuration
-│           ├── testng-parallel.xml                 # Parallel execution config
-│           └── test-data/
-│               ├── login_data.xlsx                 # Login test data
-│               └── api_test_data.json              # API test data
-│
-├── S01-S05/                                        # Java fundamentals and OOP concepts
-├── S06-S08/                                        # Selenium WebDriver basics and setup
-├── S09-S11/                                        # Element locator strategies
-├── S12-S20/                                        # Web element interactions and advanced features
-├── S21-S26/                                        # TestNG framework and annotations
-├── S27-S29/                                        # TestNG parameters and data-driven testing
-├── S30-S33/                                        # Reporting and logging infrastructure
-├── S34-S37/                                        # Advanced automation patterns
-├── S38-S44/                                        # Build management and CI/CD
-├── S45-S51/                                        # Interview questions and advanced Java concepts
-├── Tests/                                          # Comprehensive test suite
-├── pom.xml                                         # Maven POM configuration
-├── Jenkinsfile                                     # Jenkins CI/CD pipeline
-├── .gitignore                                      # Git ignore file
-├── LICENSE                                         # Apache License 2.0
-└── README.md                                       # Project documentation
-
-```
-
----
-
-## Key Features Implemented
-- ✅ Complete Selenium WebDriver setup and configuration
-- ✅ Advanced element locator strategies (ID, Class, XPath, CSS Selectors)
-- ✅ Browser compatibility testing (Chrome, Firefox, Edge, Safari)
-- ✅ Explicit and Implicit wait handling
-- ✅ Actions Class for advanced user interactions
-- ✅ Window and iFrame switching
-- ✅ JavaScript execution
-- ✅ TestNG framework integration with annotations
-- ✅ Data-driven testing with DataProviders
-- ✅ Logging with Log4j2
-- ✅ Extent Reports for advanced HTML reporting
-- ✅ Page Object Model (POM) pattern implementation
-- ✅ Parallel test execution
-- ✅ Cross-browser testing with Selenium Grid
-- ✅ Maven build management
-- ✅ Jenkins CI/CD integration
-- ✅ Database testing capabilities
-- ✅ File upload and Windows authentication handling
-- ✅ Event listener implementation
-- ✅ Exception handling and custom assertions
-- ✅ REST API automation with REST-Assured
-- ✅ Complete API testing guide with examples
-
----
-
-## Code Methodologies & Examples
-
-### 1. Page Object Model (POM) Implementation
-
-#### Example: LoginPage.java
 ```java
-public class LoginPage extends BasePage {
-    
-    // Element locators
-    private By emailInput = By.id("email");
-    private By passwordInput = By.id("password");
-    private By loginButton = By.xpath("//button[@class='btn-login']");
-    private By errorMessage = By.className("error-msg");
-    
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
-    
-    // Page-specific methods
-    public void enterEmail(String email) {
-        sendKeys(emailInput, email);
-    }
-    
-    public void enterPassword(String password) {
-        sendKeys(passwordInput, password);
-    }
-    
-    public HomePage clickLogin() {
-        click(loginButton);
-        return new HomePage(driver);
-    }
-    
-    public String getErrorMessage() {
-        return getText(errorMessage);
-    }
-    
-    public LoginPage login(String email, String password) {
-        enterEmail(email);
-        enterPassword(password);
-        clickLogin();
-        return this;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class OpenBrowserDemo {
+    public static void main(String[] args) {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://example.com");
+        System.out.println(driver.getTitle());
+        driver.quit();
     }
 }
 ```
 
-**How it works**: 
-- Encapsulates all login-related elements and methods in one class
-- Makes tests more readable and maintainable
-- Reduces code duplication across test files
-- Easy to update element locators in one place
+**Expected Result:** Chrome opens, navigates to Example Domain, prints the page title, and closes cleanly.
 
 ---
 
-### 2. Data-Driven Testing with TestNG DataProvider
+### 2. Java Fundamentals for Selenium
 
-#### Example: LoginTest.java
+Java fundamentals support every Selenium framework class: strings for URLs and locators, arrays/lists for element collections, booleans for assertions, and classes for page objects.
+
 ```java
-public class LoginTest extends BaseTest {
-    
-    private LoginPage loginPage;
-    
-    @BeforeMethod
-    public void setUp() {
-        loginPage = new LoginPage(driver);
-    }
-    
-    @DataProvider(name = "loginData")
-    public Object[][] getLoginData() {
-        return new Object[][] {
-            { "user1@test.com", "password123", true },
-            { "user2@test.com", "password456", true },
-            { "invalid@test.com", "wrongpass", false },
-            { "user3@test.com", "pass789", true }
-        };
-    }
-    
-    @Test(dataProvider = "loginData")
-    public void testLoginWithMultipleCredentials(String email, String password, boolean expectedSuccess) {
-        loginPage.login(email, password);
-        
-        if (expectedSuccess) {
-            Assert.assertTrue(loginPage.isHomePageDisplayed(), "Login failed for: " + email);
-        } else {
-            Assert.assertTrue(loginPage.getErrorMessage().contains("Invalid"), "Error message not displayed");
-        }
+String browser = "chrome";
+int timeoutSeconds = 10;
+boolean runHeadless = false;
+String[] supportedBrowsers = {"chrome", "firefox", "edge"};
+
+System.out.println(browser);
+System.out.println(timeoutSeconds);
+System.out.println(runHeadless);
+System.out.println(supportedBrowsers.length);
+```
+
+**Expected Result:** Java prints browser settings and confirms there are three supported browsers.
+
+---
+
+### 3. Locator Information and Best Practices
+
+Locators identify elements on the page. Strong locators make tests reliable. Weak locators create flaky tests.
+
+| Locator | Best Use | Example |
+|---|---|---|
+| `id` | Unique input/button IDs | `By.id("email")` |
+| `name` | Form fields | `By.name("password")` |
+| CSS selector | Fast, flexible element matching | `By.cssSelector("button[type='submit']")` |
+| XPath | Complex relationships | `By.xpath("//label[text()='Email']/following::input[1]")` |
+| linkText | Exact link text | `By.linkText("Forgot Password")` |
+| partialLinkText | Partial link text | `By.partialLinkText("Forgot")` |
+| className | Single class only | `By.className("primary")` |
+| tagName | Collections such as links | `By.tagName("a")` |
+
+```java
+WebElement email = driver.findElement(By.id("email"));
+WebElement password = driver.findElement(By.name("password"));
+WebElement login = driver.findElement(By.cssSelector("button[type='submit']"));
+WebElement forgot = driver.findElement(By.linkText("Forgot Password"));
+```
+
+**Expected Result:** Selenium locates each element and makes it available for actions or validation.
+
+---
+
+### 4. CSS and XPath Advanced Locators
+
+CSS is usually shorter and fast. XPath is useful for text matching, parent/child traversal, and sibling relationships.
+
+```java
+By cssByClass = By.cssSelector("button.primary.submit");
+By cssChild = By.cssSelector("form#loginForm input[name='email']");
+By xpathByText = By.xpath("//button[text()='Login']");
+By xpathContains = By.xpath("//button[contains(text(),'Log')]");
+By xpathSibling = By.xpath("//td[text()='Brian']/following-sibling::td/button");
+```
+
+**Expected Result:** The framework can locate elements through CSS and XPath strategies depending on DOM structure.
+
+---
+
+### 5. Working with Web Elements
+
+WebElement methods are used for interaction and validation.
+
+```java
+WebElement email = driver.findElement(By.id("email"));
+email.clear();
+email.sendKeys("demo@example.com");
+
+WebElement checkbox = driver.findElement(By.id("terms"));
+if (!checkbox.isSelected()) {
+    checkbox.click();
+}
+
+System.out.println(email.getAttribute("value"));
+System.out.println(checkbox.isSelected());
+```
+
+**Expected Result:** The email field is filled, the checkbox is selected, and values are printed for validation.
+
+---
+
+### 6. Dropdowns, Radio Buttons, and Lists
+
+Selenium's `Select` class handles standard HTML dropdowns.
+
+```java
+Select country = new Select(driver.findElement(By.id("country")));
+country.selectByVisibleText("United States");
+
+List<WebElement> options = country.getOptions();
+System.out.println(options.size());
+```
+
+**Expected Result:** United States is selected and the number of dropdown options is printed.
+
+---
+
+### 7. Waits and Synchronization
+
+Explicit waits are preferred for dynamic pages because they wait for a specific condition.
+
+```java
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.id("login-submit")));
+button.click();
+```
+
+**Expected Result:** Selenium waits until the button is clickable before clicking, reducing timing failures.
+
+---
+
+### 8. Login Tests
+
+Login coverage should include valid login, invalid login, required field validation, logout, session behavior, and role-based redirects.
+
+```java
+@Test
+public void validLoginTest() {
+    driver.get("https://example.com/login");
+    driver.findElement(By.id("email")).sendKeys("demo@example.com");
+    driver.findElement(By.id("password")).sendKeys("DemoPassword123");
+    driver.findElement(By.id("login-submit")).click();
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement dashboard = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("dashboard")));
+    Assert.assertTrue(dashboard.isDisplayed());
+}
+
+@Test
+public void invalidLoginShowsErrorTest() {
+    driver.get("https://example.com/login");
+    driver.findElement(By.id("email")).sendKeys("invalid@example.com");
+    driver.findElement(By.id("password")).sendKeys("WrongPassword");
+    driver.findElement(By.id("login-submit")).click();
+
+    String error = driver.findElement(By.cssSelector(".error-message")).getText();
+    Assert.assertEquals(error, "Invalid username or password");
+}
+```
+
+**Expected Result:** Valid login reaches the dashboard. Invalid login displays a useful error message.
+
+---
+
+### 9. API Tests with REST Assured
+
+A complete automation portfolio should include UI tests and API tests. API tests validate backend behavior directly and can also prepare data for UI tests.
+
+```java
+import io.restassured.RestAssured;
+import org.testng.annotations.Test;
+
+public class ApiTests {
+    @Test
+    public void getProductsApiTest() {
+        RestAssured
+            .given()
+                .baseUri("https://api.example.com")
+            .when()
+                .get("/products")
+            .then()
+                .statusCode(200);
     }
 }
 ```
 
-**How it works**:
-- `@DataProvider` method provides multiple test data sets
-- Same test executes with different data each time
-- Reduces code duplication for similar test scenarios
-- Easy to add more test cases by updating the data array
+**Expected Result:** The API endpoint returns HTTP 200. The test fails if the endpoint is unavailable or returns the wrong status.
 
 ---
 
-### 3. Wait Strategies Implementation
+### 10. JavaScript Execution
 
-#### Example: WaitUtil.java
+JavaScriptExecutor can scroll or click when normal WebDriver actions are blocked by layout or overlays.
+
 ```java
-public class WaitUtil {
-    
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private static final int DEFAULT_TIMEOUT = 10;
-    
-    public WaitUtil(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
+JavascriptExecutor js = (JavascriptExecutor) driver;
+WebElement element = driver.findElement(By.id("submit"));
+js.executeScript("arguments[0].scrollIntoView(true);", element);
+js.executeScript("arguments[0].click();", element);
+```
+
+**Expected Result:** Selenium scrolls to the element and performs a JavaScript click.
+
+---
+
+### 11. Windows, IFrames, and Alerts
+
+```java
+String parent = driver.getWindowHandle();
+for (String handle : driver.getWindowHandles()) {
+    if (!handle.equals(parent)) {
+        driver.switchTo().window(handle);
+        break;
     }
-    
-    // Explicit Wait for element visibility
-    public void waitForElementVisibility(By locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-    
-    // Explicit Wait for element clickability
-    public void waitForElementClickability(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
-    
-    // Explicit Wait for element presence
-    public void waitForElementPresence(By locator) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-    }
-    
-    // Custom wait for text to be present
-    public void waitForText(By locator, String text) {
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, text));
-    }
-    
-    // Implicit wait
-    public void setImplicitWait(int seconds) {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
-    }
+}
+
+driver.switchTo().frame("payment-frame");
+driver.findElement(By.id("cardNumber")).sendKeys("4111111111111111");
+driver.switchTo().defaultContent();
+
+Alert alert = driver.switchTo().alert();
+alert.accept();
+```
+
+**Expected Result:** Selenium changes browser focus to a new window, works inside an iframe, returns to the main page, and handles an alert.
+
+---
+
+### 12. Actions Class and Keyboard Events
+
+```java
+Actions actions = new Actions(driver);
+WebElement menu = driver.findElement(By.id("menu"));
+WebElement submenu = driver.findElement(By.id("submenu"));
+actions.moveToElement(menu).click(submenu).perform();
+
+actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+```
+
+**Expected Result:** Selenium performs mouse hover, submenu click, and keyboard shortcut actions.
+
+---
+
+### 13. Selenium Exceptions
+
+Common exceptions usually point to timing, locator, frame, visibility, or DOM-refresh problems.
+
+```java
+try {
+    WebElement save = new WebDriverWait(driver, Duration.ofSeconds(10))
+            .until(ExpectedConditions.elementToBeClickable(By.id("save")));
+    save.click();
+} catch (TimeoutException e) {
+    System.out.println("Save button was not clickable within 10 seconds.");
 }
 ```
 
-**How it works**:
-- Explicit waits provide precise control over wait conditions
-- Reduces `NoSuchElementException` and stale element exceptions
-- More reliable than implicit waits
-- Better performance as it waits only until condition is met
+**Expected Result:** The test gives a clear diagnostic message instead of an unclear failure.
 
 ---
 
-### 4. TestNG Annotations & Listeners
+### 14. TestNG, DataProviders, and Parallel Execution
 
-#### Example: TestListener.java
 ```java
-public class TestListener implements ITestListener {
-    
-    private static final Logger logger = LoggerFactory.getLogger(TestListener.class);
-    private ExtentTest test;
-    
-    @Override
-    public void onTestStart(ITestResult result) {
-        logger.info("Test Started: " + result.getMethod().getMethodName());
-        test = ExtentReportManager.createTest(result.getMethod().getMethodName());
-    }
-    
-    @Override
-    public void onTestSuccess(ITestResult result) {
-        logger.info("Test Passed: " + result.getMethod().getMethodName());
-        test.pass("Test passed successfully");
-    }
-    
-    @Override
-    public void onTestFailure(ITestResult result) {
-        logger.error("Test Failed: " + result.getMethod().getMethodName());
-        test.fail(result.getThrowable());
-        
-        // Take screenshot on failure
-        try {
-            String screenshot = CommonUtilities.takeScreenshot(driver, result.getMethod().getMethodName());
-            test.addScreenCaptureFromPath(screenshot);
-        } catch (IOException e) {
-            logger.error("Failed to capture screenshot: " + e.getMessage());
-        }
-    }
-    
-    @Override
-    public void onTestSkipped(ITestResult result) {
-        logger.warn("Test Skipped: " + result.getMethod().getMethodName());
-        test.skip("Test skipped");
-    }
+@DataProvider(name = "loginData")
+public Object[][] loginData() {
+    return new Object[][] {
+        {"valid@example.com", "Password123", true},
+        {"invalid@example.com", "WrongPassword", false}
+    };
+}
+
+@Test(dataProvider = "loginData")
+public void loginDataTest(String email, String password, boolean expectedSuccess) {
+    System.out.println(email + " should pass: " + expectedSuccess);
 }
 ```
 
-**How it works**:
-- Implements `ITestListener` interface from TestNG
-- Automatically captures test lifecycle events
-- Logs test execution details
-- Captures screenshots on failures
-- Updates Extent Reports with test results
-
----
-
-### 5. Exception Handling & Custom Assertions
-
-#### Example: Custom Assertions
-```java
-public class CustomAssertions {
-    
-    public static void assertElementDisplayed(WebElement element, String errorMessage) {
-        try {
-            Assert.assertTrue(element.isDisplayed(), errorMessage);
-        } catch (NoSuchElementException e) {
-            Assert.fail("Element not found: " + errorMessage);
-        }
-    }
-    
-    public static void assertTextPresent(String actualText, String expectedText, String errorMessage) {
-        try {
-            Assert.assertTrue(actualText.contains(expectedText), 
-                errorMessage + "\nExpected: " + expectedText + "\nActual: " + actualText);
-        } catch (Exception e) {
-            Assert.fail("Text comparison failed: " + e.getMessage());
-        }
-    }
-    
-    public static void assertPageTitle(WebDriver driver, String expectedTitle) {
-        String actualTitle = driver.getTitle();
-        Assert.assertEquals(actualTitle, expectedTitle, 
-            "Page title mismatch. Expected: " + expectedTitle + ", Actual: " + actualTitle);
-    }
-}
-```
-
-**How it works**:
-- Wraps standard assertions with meaningful error messages
-- Handles exceptions gracefully
-- Provides detailed assertion failure information
-- Makes test failures easier to debug
-
----
-
-### 6. Logging Implementation with Log4j2
-
-#### Example: log4j2.xml Configuration
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<Configuration>
-    <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1} - %m%n"/>
-        </Console>
-        
-        <RollingFile name="File" fileName="logs/automation.log"
-            filePattern="logs/automation-%d{yyyy-MM-dd}-%i.log.gz">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1} - %m%n"/>
-            <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-                <SizeBasedTriggeringPolicy size="100MB"/>
-            </Policies>
-        </RollingFile>
-    </Appenders>
-    
-    <Loggers>
-        <Logger name="com.automation" level="INFO"/>
-        <Root level="INFO">
-            <AppenderRef ref="Console"/>
-            <AppenderRef ref="File"/>
-        </Root>
-    </Loggers>
-</Configuration>
+<suite name="Parallel Suite" parallel="tests" thread-count="2">
+    <test name="Chrome Tests">
+        <parameter name="browser" value="chrome"/>
+        <classes><class name="tests.LoginTest"/></classes>
+    </test>
+</suite>
 ```
 
-**Usage in code**:
-```java
-private static final Logger logger = LoggerFactory.getLogger(LoginTest.class);
-
-public void testLogin() {
-    logger.info("Starting login test");
-    logger.debug("Entering email: user@test.com");
-    logger.error("Login failed: " + exception.getMessage());
-}
-```
-
-**How it works**:
-- Logs are written to both console and file
-- Rolling files prevent log file size explosion
-- Different log levels (INFO, DEBUG, ERROR) for detailed tracking
-- Helps in debugging and troubleshooting
+**Expected Result:** TestNG runs the test once per data row and can run tests in parallel through XML configuration.
 
 ---
 
-## REST API Automation Guide
+### 15. Screenshots, Logging, and Reports
 
-### Overview
-REST API automation is essential for modern testing as it provides:
-- Backend validation independent of UI
-- Performance testing capabilities
-- Data integrity verification
-- Faster test execution
-
-### 1. REST-Assured Setup
-
-#### Dependencies in pom.xml
-```xml
-<dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>rest-assured</artifactId>
-    <version>5.3.0</version>
-</dependency>
-
-<dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.10.1</version>
-</dependency>
-```
-
----
-
-### 2. APIUtil Class - Utility Methods
-
-#### Example: APIUtil.java
 ```java
-public class APIUtil {
-    
-    private static final Logger logger = LoggerFactory.getLogger(APIUtil.class);
-    private static final String BASE_URL = "https://api.example.com";
-    
-    // GET request
-    public static Response getRequest(String endpoint) {
-        logger.info("Making GET request to: " + BASE_URL + endpoint);
-        return given()
-            .contentType(ContentType.JSON)
-            .when()
-            .get(BASE_URL + endpoint)
-            .then()
-            .log().all()
-            .extract()
-            .response();
-    }
-    
-    // POST request with request body
-    public static Response postRequest(String endpoint, Object body) {
-        logger.info("Making POST request to: " + BASE_URL + endpoint);
-        return given()
-            .contentType(ContentType.JSON)
-            .body(body)
-            .when()
-            .post(BASE_URL + endpoint)
-            .then()
-            .log().all()
-            .extract()
-            .response();
-    }
-    
-    // POST request with JSON string
-    public static Response postRequestWithJson(String endpoint, String jsonBody) {
-        logger.info("Making POST request with JSON to: " + BASE_URL + endpoint);
-        return given()
-            .contentType(ContentType.JSON)
-            .body(jsonBody)
-            .when()
-            .post(BASE_URL + endpoint)
-            .then()
-            .log().all()
-            .extract()
-            .response();
-    }
-    
-    // PUT request
-    public static Response putRequest(String endpoint, Object body) {
-        logger.info("Making PUT request to: " + BASE_URL + endpoint);
-        return given()
-            .contentType(ContentType.JSON)
-            .body(body)
-            .when()
-            .put(BASE_URL + endpoint)
-            .then()
-            .log().all()
-            .extract()
-            .response();
-    }
-    
-    // DELETE request
-    public static Response deleteRequest(String endpoint) {
-        logger.info("Making DELETE request to: " + BASE_URL + endpoint);
-        return given()
-            .contentType(ContentType.JSON)
-            .when()
-            .delete(BASE_URL + endpoint)
-            .then()
-            .log().all()
-            .extract()
-            .response();
-    }
-    
-    // Request with headers
-    public static Response getRequestWithHeaders(String endpoint, Map<String, String> headers) {
-        logger.info("Making GET request with headers to: " + BASE_URL + endpoint);
-        return given()
-            .contentType(ContentType.JSON)
-            .headers(headers)
-            .when()
-            .get(BASE_URL + endpoint)
-            .then()
-            .log().all()
-            .extract()
-            .response();
-    }
-    
-    // Request with authentication
-    public static Response getRequestWithAuth(String endpoint, String username, String password) {
-        logger.info("Making authenticated GET request to: " + BASE_URL + endpoint);
-        return given()
-            .contentType(ContentType.JSON)
-            .auth().basic(username, password)
-            .when()
-            .get(BASE_URL + endpoint)
-            .then()
-            .log().all()
-            .extract()
-            .response();
-    }
-    
-    // Request with Bearer token
-    public static Response getRequestWithToken(String endpoint, String token) {
-        logger.info("Making GET request with token to: " + BASE_URL + endpoint);
-        return given()
-            .contentType(ContentType.JSON)
-            .header("Authorization", "Bearer " + token)
-            .when()
-            .get(BASE_URL + endpoint)
-            .then()
-            .log().all()
-            .extract()
-            .response();
-    }
+public void captureScreenshot(String testName) throws IOException {
+    File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+    File dest = new File("screenshots/" + testName + ".png");
+    FileUtils.copyFile(src, dest);
 }
 ```
 
----
-
-### 3. Complete API Test Examples
-
-#### Example 1: Basic GET Request Test
 ```java
-public class UserAPITest {
-    
-    private static final Logger logger = LoggerFactory.getLogger(UserAPITest.class);
-    private APIUtil apiUtil = new APIUtil();
-    
-    @Test
-    public void testGetAllUsers() {
-        logger.info("Test: Get all users");
-        
-        Response response = APIUtil.getRequest("/users");
-        
-        // Assertions
-        Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
-        Assert.assertTrue(response.getContentType().contains("application/json"), "Content type should be JSON");
-        
-        // Extract and verify response body
-        List<Integer> userIds = response.jsonPath().getList("id");
-        Assert.assertTrue(userIds.size() > 0, "User list should not be empty");
-        
-        logger.info("Test passed - Retrieved " + userIds.size() + " users");
-    }
-    
-    @Test
-    public void testGetUserById() {
-        logger.info("Test: Get user by ID");
-        
-        int userId = 1;
-        Response response = APIUtil.getRequest("/users/" + userId);
-        
-        // Assertions
-        Assert.assertEquals(response.getStatusCode(), 200);
-        Assert.assertEquals(response.jsonPath().getInt("id"), userId);
-        Assert.assertNotNull(response.jsonPath().getString("name"));
-        
-        logger.info("Test passed - Retrieved user: " + response.jsonPath().getString("name"));
-    }
-}
+private static final Logger log = LogManager.getLogger(LoginTest.class);
+log.info("Starting login test");
+log.info("Entering credentials");
 ```
 
-**Explanation**:
-- `getRequest()` makes a GET request and returns Response object
-- `getStatusCode()` retrieves HTTP status code
-- `jsonPath()` allows XPath-like syntax to extract JSON values
-- `Assert` statements validate expected results
+**Expected Result:** The framework records screenshots on failure and logs execution steps for troubleshooting.
 
 ---
 
-#### Example 2: POST Request with Request Body
+### 16. Selenium Grid and Cloud Execution
+
+RemoteWebDriver allows execution on a grid or cloud browser provider.
+
 ```java
-public class PostCreationAPITest {
-    
-    @Test
-    public void testCreateNewPost() {
-        logger.info("Test: Create new post");
-        
-        // Create request body
-        String requestBody = "{\n" +
-            "  \"title\": \"Test Post\",\n" +
-            "  \"body\": \"This is a test post\",\n" +
-            "  \"userId\": 1\n" +
-            "}";
-        
-        Response response = APIUtil.postRequestWithJson("/posts", requestBody);
-        
-        // Assertions
-        Assert.assertEquals(response.getStatusCode(), 201, "Status code should be 201 (Created)");
-        Assert.assertNotNull(response.jsonPath().getInt("id"), "Post ID should not be null");
-        Assert.assertEquals(response.jsonPath().getString("title"), "Test Post");
-        
-        int postId = response.jsonPath().getInt("id");
-        logger.info("Test passed - Post created with ID: " + postId);
-    }
-    
-    @Test
-    public void testCreatePostWithObject() {
-        logger.info("Test: Create post using object");
-        
-        // Create object using POJO
-        PostData post = new PostData();
-        post.setTitle("New Post");
-        post.setBody("Post content");
-        post.setUserId(1);
-        
-        Response response = APIUtil.postRequest("/posts", post);
-        
-        Assert.assertEquals(response.getStatusCode(), 201);
-        Assert.assertNotNull(response.jsonPath().getInt("id"));
-        
-        logger.info("Test passed - Post created successfully");
-    }
-}
+ChromeOptions options = new ChromeOptions();
+WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+driver.get("https://example.com");
+System.out.println(driver.getTitle());
+driver.quit();
 ```
 
-**PostData POJO Class**:
-```java
-public class PostData {
-    private String title;
-    private String body;
-    private int userId;
-    
-    // Getters and Setters
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-    
-    public String getBody() { return body; }
-    public void setBody(String body) { this.body = body; }
-    
-    public int getUserId() { return userId; }
-    public void setUserId(int userId) { this.userId = userId; }
-}
-```
+**Expected Result:** The test runs on a remote browser node instead of the local machine.
 
 ---
 
-#### Example 3: PUT Request with Update
+### 17. Database Testing
+
 ```java
-public class UpdateAPITest {
-    
-    @Test
-    public void testUpdatePost() {
-        logger.info("Test: Update post");
-        
-        int postId = 1;
-        String updateBody = "{\n" +
-            "  \"id\": " + postId + ",\n" +
-            "  \"title\": \"Updated Title\",\n" +
-            "  \"body\": \"Updated content\",\n" +
-            "  \"userId\": 1\n" +
-            "}";
-        
-        Response response = APIUtil.putRequest("/posts/" + postId, updateBody);
-        
-        // Assertions
-        Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
-        Assert.assertEquals(response.jsonPath().getString("title"), "Updated Title");
-        
-        logger.info("Test passed - Post updated successfully");
-    }
+Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+Statement statement = connection.createStatement();
+ResultSet resultSet = statement.executeQuery("SELECT email FROM users WHERE id = 1");
+
+if (resultSet.next()) {
+    Assert.assertEquals(resultSet.getString("email"), "demo@example.com");
 }
 ```
 
+**Expected Result:** The database value matches the expected UI/API test data.
+
 ---
 
-#### Example 4: DELETE Request
+### 18. Cucumber BDD
+
+```gherkin
+Feature: Login
+  Scenario: Valid user logs in
+    Given user is on the login page
+    When user enters valid credentials
+    Then dashboard should be displayed
+```
+
 ```java
-public class DeleteAPITest {
-    
-    @Test
-    public void testDeletePost() {
-        logger.info("Test: Delete post");
-        
-        int postId = 1;
-        Response response = APIUtil.deleteRequest("/posts/" + postId);
-        
-        // Assertions - DELETE typically returns 200 or 204
-        Assert.assertTrue(response.getStatusCode() == 200 || response.getStatusCode() == 204,
-            "Status code should be 200 or 204");
-        
-        logger.info("Test passed - Post deleted successfully");
-    }
+@Given("user is on the login page")
+public void userIsOnLoginPage() {
+    driver.get(baseUrl + "/login");
 }
 ```
 
+**Expected Result:** A readable Gherkin scenario executes Selenium Java step definitions.
+
 ---
 
-#### Example 5: API Testing with Authentication
-```java
-public class AuthenticatedAPITest {
-    
-    @Test
-    public void testAuthenticatedRequest() {
-        logger.info("Test: Authenticated API request");
-        
-        String username = "testuser";
-        String password = "testpass123";
-        
-        Response response = APIUtil.getRequestWithAuth("/protected/data", username, password);
-        
-        Assert.assertEquals(response.getStatusCode(), 200);
-        Assert.assertNotNull(response.jsonPath().getString("data"));
-        
-        logger.info("Test passed - Authenticated request successful");
-    }
-    
-    @Test
-    public void testTokenBasedAuth() {
-        logger.info("Test: Token-based API request");
-        
-        // First, get the token
-        String loginBody = "{\"email\": \"user@test.com\", \"password\": \"pass123\"}";
-        Response loginResponse = APIUtil.postRequestWithJson("/auth/login", loginBody);
-        
-        Assert.assertEquals(loginResponse.getStatusCode(), 200);
-        String token = loginResponse.jsonPath().getString("token");
-        
-        // Use token for subsequent requests
-        Response dataResponse = APIUtil.getRequestWithToken("/protected/data", token);
-        
-        Assert.assertEquals(dataResponse.getStatusCode(), 200);
-        logger.info("Test passed - Token-based authentication successful");
-    }
-}
+## Building a Selenium Java Framework from Scratch
+
+### Recommended Framework Structure
+
+```text
+selenium-java-framework/
+├── pom.xml
+├── testng.xml
+├── src/test/java/
+│   ├── base/BaseTest.java
+│   ├── factory/DriverFactory.java
+│   ├── pages/BasePage.java
+│   ├── pages/LoginPage.java
+│   ├── tests/LoginTest.java
+│   ├── tests/ApiTests.java
+│   ├── listeners/TestListener.java
+│   └── utils/
+│       ├── ConfigReader.java
+│       ├── WaitUtil.java
+│       ├── ScreenshotUtil.java
+│       ├── ExcelUtil.java
+│       └── ApiUtil.java
+├── src/test/resources/
+│   ├── config.properties
+│   ├── log4j2.xml
+│   └── testdata.xlsx
+└── reports/
 ```
 
----
+### Required Files
 
-#### Example 6: Data-Driven API Testing
+| File | Required? | Purpose |
+|---|---:|---|
+| `pom.xml` | Yes | Maven dependencies and plugins. |
+| `testng.xml` | Recommended | Test suite, browser parameters, groups, and parallel execution. |
+| `BaseTest.java` | Yes | Driver setup and teardown. |
+| `DriverFactory.java` | Yes | Browser creation logic. |
+| `BasePage.java` | Recommended | Shared page methods and waits. |
+| Page classes | Yes for POM | Encapsulate locators and page actions. |
+| Test classes | Yes | Contain test scenarios and assertions. |
+| `ConfigReader.java` | Recommended | Reads URLs and framework settings. |
+| `WaitUtil.java` | Recommended | Centralized explicit wait methods. |
+| `ScreenshotUtil.java` | Recommended | Captures screenshots on failure. |
+| `TestListener.java` | Recommended | Hooks into pass/fail/skip events. |
+| `log4j2.xml` | Recommended | Logging configuration. |
+| Reporting config | Recommended | Extent or TestNG report setup. |
+
+### DriverFactory Example
+
 ```java
-public class DataDrivenAPITest extends BaseTest {
-    
-    @DataProvider(name = "apiTestData")
-    public Object[][] getAPITestData() {
-        return new Object[][] {
-            { 1, "POST", "New Title", "New Body" },
-            { 2, "POST", "Another Title", "Another Body" },
-            { 3, "PUT", "Updated Title", "Updated Body" }
-        };
-    }
-    
-    @Test(dataProvider = "apiTestData")
-    public void testAPIWithMultipleData(int id, String method, String title, String body) {
-        logger.info("Test: API with data - ID: " + id + ", Method: " + method);
-        
-        String requestBody = "{\n" +
-            "  \"title\": \"" + title + "\",\n" +
-            "  \"body\": \"" + body + "\"\n" +
-            "}";
-        
-        Response response;
-        
-        if ("POST".equals(method)) {
-            response = APIUtil.postRequestWithJson("/posts", requestBody);
-            Assert.assertEquals(response.getStatusCode(), 201);
-        } else if ("PUT".equals(method)) {
-            response = APIUtil.putRequest("/posts/" + id, requestBody);
-            Assert.assertEquals(response.getStatusCode(), 200);
+public class DriverFactory {
+    public WebDriver initDriver(String browser) {
+        switch (browser.toLowerCase()) {
+            case "firefox": return new FirefoxDriver();
+            case "edge": return new EdgeDriver();
+            default: return new ChromeDriver();
         }
-        
-        logger.info("Test passed for ID: " + id);
     }
 }
 ```
 
----
+### BaseTest Example
 
-#### Example 7: Response Validation & Assertion
 ```java
-public class ResponseValidationTest {
-    
-    @Test
-    public void testResponseValidation() {
-        logger.info("Test: Response validation");
-        
-        Response response = APIUtil.getRequest("/users/1");
-        
-        // Validate status code
-        response.then().statusCode(200);
-        
-        // Validate response body contains expected fields
-        response.then()
-            .body("id", notNullValue())
-            .body("name", equalTo("John Doe"))
-            .body("email", containsString("@"));
-        
-        // Validate headers
-        response.then()
-            .header("Content-Type", containsString("application/json"));
-        
-        // Validate response time
-        response.then()
-            .time(lessThan(2000L)); // Should respond in less than 2 seconds
-        
-        logger.info("Test passed - Response validation successful");
-    }
-    
-    @Test
-    public void testMultipleFieldValidation() {
-        logger.info("Test: Multiple field validation");
-        
-        Response response = APIUtil.getRequest("/posts/1");
-        
-        response.then()
-            .statusCode(200)
-            .body("id", equalTo(1))
-            .body("userId", equalTo(1))
-            .body("title", notNullValue())
-            .body("body", notNullValue());
-        
-        logger.info("Test passed - All fields validated");
-    }
-}
-```
+public class BaseTest {
+    protected WebDriver driver;
 
----
-
-### 4. REST API Best Practices & Tips
-
-#### Tip 1: Centralize Base URL Configuration
-```java
-// In config.properties
-api.base.url=https://api.example.com
-api.timeout=5000
-
-// In code
-String baseUrl = PropertyFileReader.getProperty("api.base.url");
-int timeout = Integer.parseInt(PropertyFileReader.getProperty("api.timeout"));
-```
-
-#### Tip 2: Create Reusable Request Models
-```java
-public class APIRequest {
-    private String endpoint;
-    private String method;
-    private Object body;
-    private Map<String, String> headers;
-    
-    // Builder pattern
-    public static APIRequest builder() {
-        return new APIRequest();
-    }
-    
-    public APIRequest withEndpoint(String endpoint) {
-        this.endpoint = endpoint;
-        return this;
-    }
-    
-    public APIRequest withMethod(String method) {
-        this.method = method;
-        return this;
-    }
-    
-    public APIRequest withBody(Object body) {
-        this.body = body;
-        return this;
-    }
-    
-    public APIRequest withHeaders(Map<String, String> headers) {
-        this.headers = headers;
-        return this;
-    }
-}
-
-// Usage
-Response response = APIUtil.executeRequest(
-    APIRequest.builder()
-        .withEndpoint("/users")
-        .withMethod("GET")
-        .withHeaders(headersMap)
-        .build()
-);
-```
-
-#### Tip 3: Handle Different Response Types
-```java
-@Test
-public void testDifferentResponseTypes() {
-    // JSON Response
-    Response jsonResponse = APIUtil.getRequest("/users/1");
-    String name = jsonResponse.jsonPath().getString("name");
-    
-    // XML Response
-    Response xmlResponse = APIUtil.getRequest("/data");
-    String xmlValue = xmlResponse.xmlPath().getString("root.element");
-    
-    // Plain Text Response
-    Response textResponse = APIUtil.getRequest("/text-data");
-    String textContent = textResponse.asString();
-}
-```
-
-#### Tip 4: Implement Retry Logic for API Tests
-```java
-public class APIRetryUtil {
-    
-    private static final int MAX_RETRIES = 3;
-    private static final int RETRY_DELAY = 1000; // milliseconds
-    
-    public static Response executeWithRetry(Callable<Response> request) throws Exception {
-        int attempts = 0;
-        Exception lastException = null;
-        
-        while (attempts < MAX_RETRIES) {
-            try {
-                return request.call();
-            } catch (Exception e) {
-                lastException = e;
-                attempts++;
-                if (attempts < MAX_RETRIES) {
-                    Thread.sleep(RETRY_DELAY);
-                }
-            }
-        }
-        
-        throw lastException;
-    }
-    
-    // Usage
-    @Test
-    public void testWithRetry() throws Exception {
-        Response response = APIRetryUtil.executeWithRetry(() -> 
-            APIUtil.getRequest("/unstable-endpoint")
-        );
-    }
-}
-```
-
-#### Tip 5: Mock API Responses for Testing
-```java
-// Using WireMock or similar tools
-@Test
-public void testWithMockedAPI() {
-    // Mock endpoint response
-    WireMock.stubFor(get(urlEqualTo("/users/1"))
-        .willReturn(aResponse()
-            .withStatus(200)
-            .withBody("{\"id\": 1, \"name\": \"John\"}")
-            .withHeader("Content-Type", "application/json")));
-    
-    Response response = APIUtil.getRequest("/users/1");
-    Assert.assertEquals(response.getStatusCode(), 200);
-}
-```
-
-#### Tip 6: Extract & Reuse Response Values
-```java
-@Test
-public void testExtractAndReuse() {
-    // Create post
-    Response createResponse = APIUtil.postRequest("/posts", postData);
-    int postId = createResponse.jsonPath().getInt("id");
-    
-    // Update post using extracted ID
-    String updateBody = "{\"title\": \"Updated\"}";
-    Response updateResponse = APIUtil.putRequest("/posts/" + postId, updateBody);
-    Assert.assertEquals(updateResponse.getStatusCode(), 200);
-    
-    // Delete post using extracted ID
-    Response deleteResponse = APIUtil.deleteRequest("/posts/" + postId);
-    Assert.assertEquals(deleteResponse.getStatusCode(), 200);
-}
-```
-
-#### Tip 7: Performance Testing with APIs
-```java
-@Test
-public void testAPIPerformance() {
-    long startTime = System.currentTimeMillis();
-    
-    Response response = APIUtil.getRequest("/users");
-    
-    long endTime = System.currentTimeMillis();
-    long duration = endTime - startTime;
-    
-    Assert.assertTrue(duration < 2000, "API response should be under 2 seconds. Actual: " + duration + "ms");
-    logger.info("API response time: " + duration + "ms");
-}
-```
-
-#### Tip 8: API Test Data Management
-```java
-public class APITestDataManager {
-    
-    // Create test data via API
-    public static int createTestUser(UserData userData) {
-        Response response = APIUtil.postRequest("/users", userData);
-        return response.jsonPath().getInt("id");
-    }
-    
-    // Delete test data via API
-    public static void deleteTestUser(int userId) {
-        APIUtil.deleteRequest("/users/" + userId);
-    }
-    
-    // Setup: Create test data
     @BeforeMethod
-    public void setup() {
-        testUserId = APITestDataManager.createTestUser(testUserData);
+    @Parameters("browser")
+    public void setUp(@Optional("chrome") String browser) {
+        driver = new DriverFactory().initDriver(browser);
+        driver.manage().window().maximize();
+        driver.get("https://example.com");
     }
-    
-    // Teardown: Clean test data
+
     @AfterMethod
-    public void cleanup() {
-        APITestDataManager.deleteTestUser(testUserId);
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
 ```
 
+### Framework Build Steps
+
+1. Create Maven project.
+2. Add Selenium, TestNG, Log4j2, Extent Reports, REST Assured, and Apache POI dependencies.
+3. Create `BaseTest` for setup/teardown.
+4. Create `DriverFactory` for browser selection.
+5. Create page classes using POM.
+6. Create utilities for waits, screenshots, JavaScript, config, Excel, API, and database.
+7. Create TestNG XML suites.
+8. Add TestNG listeners for screenshots on failure.
+9. Add logging and reporting.
+10. Add Maven profiles for smoke/regression execution.
+11. Add CI/CD through Jenkins or GitHub Actions.
+
 ---
 
-## How to Use
+## When to Build Framework from Scratch vs Use Pre-Built Frameworks
 
-### Prerequisites
-- Java JDK 11 or higher
-- Maven 3.6+
-- Selenium WebDriver 4.x
-- TestNG 7.x
-- IDE: IntelliJ IDEA or Eclipse
+| Scenario | Use Simple / Pre-Built Setup | Build Custom Framework From Scratch |
+|---|---|---|
+| Learning Selenium basics | Yes | No |
+| Small smoke suite | Yes | No |
+| 10-30 tests | Yes, light POM only | Usually no |
+| 100+ regression tests | No | Yes |
+| Multiple browsers/environments | Maybe | Yes |
+| Data-driven testing from Excel/API/DB | Maybe | Yes |
+| CI/CD and custom reports | Maybe | Yes |
+| Multiple teams maintaining tests | No | Yes |
+| BDD required by stakeholders | Use Cucumber starter | Build BDD framework layer |
+| Grid/cloud execution | Use provider template | Build grid/cloud integration layer when scale requires it |
 
-### Installation Steps
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/BrianGator/Selenium-WebDriver-Automation-w-Java-Ninja.git
-   cd Selenium-WebDriver-Automation-w-Java-Ninja
-   ```
+### Popular Selenium Java Framework Patterns
 
-2. Install dependencies:
-   ```bash
-   mvn clean install
-   ```
+| Framework Pattern | Best For | Tools |
+|---|---|---|
+| Selenium + TestNG + Maven | Standard UI automation | Selenium, TestNG, Maven |
+| Selenium + POM + TestNG | Maintainable regression suites | Page Object Model, TestNG |
+| Selenium + Page Factory | Page object element initialization | `@FindBy`, `PageFactory` |
+| Selenium + Cucumber BDD | Business-readable scenarios | Cucumber, Gherkin |
+| Selenium + REST Assured | UI plus API testing | Selenium, REST Assured |
+| Selenium + Apache POI | Excel-driven testing | POI, DataProvider |
+| Selenium + Extent Reports | Portfolio/reporting | Extent Reports, screenshots |
+| Selenium Grid Framework | Cross-browser/OS scale | Grid, RemoteWebDriver |
+| Selenium + Jenkins | CI/CD execution | Jenkins, Maven, GitHub |
+| Hybrid Keyword/Data-Driven Framework | Keyword-driven execution | Excel/CSV, POI, reflection |
 
-3. Run all tests:
-   ```bash
-   mvn test
-   ```
+**Recommendation:** The most practical professional setup is **Selenium 4 + Java + Maven + TestNG + Page Object Model + explicit waits + Log4j2 + Extent Reports + REST Assured + CI/CD**. Build custom framework layers only when the test suite has enough size, repetition, reporting needs, test data complexity, or CI/CD requirements to justify it.
 
-4. Run specific test class:
-   ```bash
-   mvn test -Dtest=YourTestClassName
-   ```
+---
 
-5. Run with specific browser:
-   ```bash
-   mvn test -Dbrowser=firefox
-   ```
+## Top 30 Selenium Java Technical Interview Questions with Code Examples
 
-6. Generate Extent Reports:
-   ```bash
-   mvn test -DgenerateReport=true
-   ```
+| # | Question | Short Answer / Code Example |
+|---:|---|---|
+| 1 | What is Selenium WebDriver? | Browser automation API. `WebDriver driver = new ChromeDriver();` |
+| 2 | `findElement` vs `findElements`? | `findElement` throws if missing; `findElements` returns empty list. |
+| 3 | Best locator strategy? | Prefer `id`, `name`, CSS, then relative XPath. |
+| 4 | What is explicit wait? | `wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("msg")));` |
+| 5 | Implicit vs explicit wait? | Implicit is global; explicit waits for a specific condition. |
+| 6 | How do you handle stale elements? | Re-locate element or use `ExpectedConditions.refreshed(...)`. |
+| 7 | How do you switch to iframe? | `driver.switchTo().frame("frameName");` |
+| 8 | How do you handle alerts? | `driver.switchTo().alert().accept();` |
+| 9 | How do you handle windows? | Loop through `driver.getWindowHandles()`. |
+| 10 | What is POM? | Page classes store locators/actions separate from tests. |
+| 11 | What is Page Factory? | `PageFactory.initElements(driver, this);` initializes `@FindBy` fields. |
+| 12 | How do you run parallel tests? | TestNG XML: `parallel="tests" thread-count="2"`. |
+| 13 | How do you take screenshot? | `((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);` |
+| 14 | How do you execute JavaScript? | `((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);` |
+| 15 | How do you select dropdown values? | `new Select(element).selectByVisibleText("United States");` |
+| 16 | How do you check checkbox state? | `element.isSelected();` |
+| 17 | How do you mouse hover? | `new Actions(driver).moveToElement(menu).perform();` |
+| 18 | How do you drag and drop? | `new Actions(driver).dragAndDrop(source, target).perform();` |
+| 19 | How do you upload a file? | `fileInput.sendKeys("C:\\files\\test.pdf");` |
+| 20 | What is Selenium Grid? | Remote execution across browsers/nodes. |
+| 21 | What is TestNG DataProvider? | Runs test with multiple data sets. |
+| 22 | What are TestNG listeners? | Hooks for pass/fail/skip and reporting events. |
+| 23 | How do you read config? | Use `Properties` and `FileInputStream`. |
+| 24 | How do you add API tests? | Use REST Assured in the same Maven framework. |
+| 25 | How do you validate database data? | Use JDBC `Connection`, `Statement`, `ResultSet`. |
+| 26 | Dynamic XPath example? | `//td[text()='Brian']/following-sibling::td/button` |
+| 27 | ElementNotInteractable cause? | Hidden, disabled, overlapped, or not ready. |
+| 28 | NoSuchElement cause? | Wrong locator, timing, iframe, or wrong page. |
+| 29 | Stable framework design? | POM, waits, utilities, logging, reports, CI, isolated data. |
+| 30 | What should be automated? | High-value repeatable flows: login, checkout, search, forms, APIs, regression. |
 
-### Configuration
-- Update `config.properties` with your test environment details
-- Configure browser options in `WebDriverFactory.java`
-- Set logging levels in `log4j2.xml`
+---
 
-### Running Tests
+## Best Practices
+
+- Use stable locators and avoid brittle absolute XPath.
+- Prefer explicit waits over hard sleeps.
+- Keep page locators inside page classes.
+- Keep tests focused on business scenarios.
+- Use TestNG groups for smoke/regression suites.
+- Use DataProviders for repeated data scenarios.
+- Capture screenshots on failure.
+- Add logging and readable reports.
+- Keep configuration outside code.
+- Use API setup where UI setup is slow.
+- Use Grid/cloud execution only when cross-browser scale is needed.
+- Start simple, then add framework layers as the suite grows.
+
+---
+
+## How to Run
+
 ```bash
-# Run all tests
+git clone https://github.com/BrianGator/Selenium-WebDriver-Automation-w-Java-Ninja-Showcase.git
+cd Selenium-WebDriver-Automation-w-Java-Ninja-Showcase
 mvn clean test
-
-# Run tests in parallel
-mvn test -DthreadCount=3
-
-# Run specific suite
-mvn test -DsuiteXmlFile=testng.xml
-
-# Run with specific group
-mvn test -Dgroups=smoke
-
-# Run API tests only
-mvn test -Dtest=*APITest
-
-# Run with detailed logging
-mvn test -X
 ```
 
----
+Run a TestNG suite:
 
-## All Testing Types with Descriptions
-
-### 1. **Unit Testing**
-- **Description**: Tests individual components/methods in isolation
-- **Tools**: JUnit, TestNG assertions
-- **Use Case**: Validating utility functions, helper methods
-- **Example**: Testing string manipulation, calculations
-- **Sample Code**:
-```java
-@Test
-public void testStringUtility() {
-    String result = StringUtil.capitalize("hello");
-    Assert.assertEquals(result, "Hello");
-}
+```bash
+mvn clean test -DsuiteXmlFile=testng.xml
 ```
 
-### 2. **Functional Testing**
-- **Description**: Tests complete workflows and business functions
-- **Tools**: Selenium WebDriver, TestNG
-- **Use Case**: Login flows, form submissions, searches
-- **Example**: End-to-end user journeys
-- **Sample Code**:
-```java
-@Test
-public void testLoginWorkflow() {
-    loginPage.login("user@test.com", "password123");
-    Assert.assertTrue(homePage.isDisplayed());
-}
+Run with a browser parameter:
+
+```bash
+mvn clean test -Dbrowser=chrome
 ```
-
-### 3. **Smoke Testing**
-- **Description**: Quick tests verifying basic functionality
-- **Tools**: TestNG with @Test annotation
-- **Use Case**: Pre-deployment validation
-- **Example**: Application startup, main page loads
-- **Sample Code**:
-```java
-@Test(groups = "smoke")
-public void testApplicationStartup() {
-    driver.navigate().to("https://www.example.com");
-    Assert.assertTrue(driver.getTitle().contains("Example"));
-}
-```
-
-### 4. **Regression Testing**
-- **Description**: Tests to ensure new changes don't break existing features
-- **Tools**: TestNG with multiple test cases
-- **Use Case**: After bug fixes or feature additions
-- **Example**: Full test suite execution
-
-### 5. **Integration Testing**
-- **Description**: Tests interaction between multiple components
-- **Tools**: Selenium with multiple page objects
-- **Use Case**: Testing API + UI integration
-- **Example**: Database operations reflected in UI
-
-### 6. **Data-Driven Testing**
-- **Description**: Tests with multiple data sets
-- **Tools**: TestNG DataProvider, Excel/CSV files
-- **Use Case**: Testing same scenario with different inputs
-- **Example**: Login with multiple user credentials
-
-### 7. **Cross-Browser Testing**
-- **Description**: Tests application on different browsers
-- **Tools**: Selenium Grid, BrowserStack
-- **Use Case**: Ensuring compatibility across browsers
-- **Example**: Chrome, Firefox, Safari, Edge
-
-### 8. **Performance Testing**
-- **Description**: Tests application performance and load times
-- **Tools**: JMeter, Selenium with timing assertions
-- **Use Case**: Checking response times, throughput
-- **Example**: Page load time validations
-
-### 9. **API Testing**
-- **Description**: Tests backend APIs and services
-- **Tools**: REST-Assured, HttpClient
-- **Use Case**: Validating API responses
-- **Example**: Status codes, response validation
-
-### 10. **Accessibility Testing**
-- **Description**: Tests WCAG compliance and accessibility features
-- **Tools**: Axe-core, WAVE
-- **Use Case**: Ensuring application is accessible to all users
-- **Example**: Screen reader compatibility
-
----
-
-## Dependencies
-- **Selenium WebDriver**: Web automation framework
-- **TestNG**: Testing framework with advanced features
-- **REST-Assured**: REST API testing library
-- **Log4j2**: Logging framework
-- **Extent Reports**: Advanced HTML reporting
-- **Gson**: JSON processing
-- **Apache POI**: Excel file handling
-- **Maven**: Build tool
-
----
-
-## Documentation
-- Extensive inline code comments
-- Javadoc documentation for all classes
-- Example test cases in each section
-- Best practices and design patterns
-- Complete REST API automation guide with real-world examples
-
----
-
-## Contributing
-1. Follow existing code structure
-2. Add tests for new features
-3. Update documentation
-4. Submit pull requests with clear descriptions
-
----
-
-## License
-This project is licensed under the Apache License 2.0. See LICENSE file for details.
 
 ---
 
 ## Author
+
 **Written by Brian McCarthy**
 
-Created for comprehensive Selenium WebDriver automation learning and reference, with emphasis on modern testing practices, REST API automation, and CI/CD integration.
-
----
-
-## Additional Resources
-- [Selenium Official Documentation](https://www.selenium.dev/documentation/)
-- [TestNG Documentation](https://testng.org/doc/)
-- [REST-Assured GitHub](https://github.com/rest-assured/rest-assured)
-- [Java Documentation](https://docs.oracle.com/en/java/)
-- [Log4j2 Documentation](https://logging.apache.org/log4j/2.x/)
-- [Maven Official Documentation](https://maven.apache.org/guides/)
+This repository demonstrates Selenium WebDriver automation with Java, TestNG, Maven, REST Assured, Page Object Model, Page Factory, logging, reporting, data-driven testing, Selenium Grid, Jenkins, GitHub, Cucumber BDD, database testing, and framework design best practices.
